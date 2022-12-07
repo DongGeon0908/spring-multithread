@@ -37,4 +37,8 @@ class Todo(
     fun changedActive(isActive: Boolean) {
         this.active = isActive
     }
+
+    override fun toString(): String {
+        return "Todo(id=$id, title='$title', content='$content', category=$category, active=$active)"
+    }
 }
