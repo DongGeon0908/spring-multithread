@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RestController
 class TodoController(
     private val todoService: TodoService
 ) {
+    // testName=default insert test, testSize=1000, testTime=105409ms
     @PostMapping("/default-insert-test-1")
-    fun defaultInsert() = todoService.test().wrapOk()
+    fun defaultInsert() = todoService.defaultTest().wrapOk()
+
+    // testName=default insert test, testSize=1000, testTime=11801ms
+    @PostMapping("/async-insert-test-1")
+    fun asyncInsert() = todoService.asyncInsert().wrapOk()
 }
