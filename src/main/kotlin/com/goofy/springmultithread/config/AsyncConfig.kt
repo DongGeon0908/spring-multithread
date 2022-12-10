@@ -19,7 +19,7 @@ class AsyncConfig {
         .apply {
             this.corePoolSize = 10
             this.maxPoolSize = 50
-            this.queueCapacity = 1000
+            this.queueCapacity = 100
             this.setThreadNamePrefix("testExecutor-")
             this.initialize()
         }

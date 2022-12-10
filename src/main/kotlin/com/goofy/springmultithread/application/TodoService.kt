@@ -45,11 +45,9 @@ class TodoService(
 
         val todos = (0 until 1000).map { todoAsyncService.asyncCreateTodo(it) }
 
-        val completableFutureTodos = CompletableFuture.allOf(*todos.toTypedArray())
-            .thenApply { todos.map { it.join() } }
-            .get()
+        CompletableFuture.allOf(*todos.toTypedArray()).join()
 
-        todoRepository.saveAll(completableFutureTodos)
+        todoRepository.saveAll(todos.map { it.get() })
 
         val end = System.currentTimeMillis()
 
