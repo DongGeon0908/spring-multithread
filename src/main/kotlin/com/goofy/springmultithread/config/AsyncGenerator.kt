@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component
 class AsyncGenerator {
     private val logger = KotlinLogging.logger {}
 
+    // 멀티스레드 옵션
     companion object {
         const val DEFAULT_CORE_POOL_SIZE = 5
         const val DEFAULT_MAX_POOL_SIZE = 10
